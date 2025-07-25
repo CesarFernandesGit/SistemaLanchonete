@@ -18,24 +18,33 @@ time.sleep(3)
 for i in range(len(cardapioAlimentos)):
     print(f"{i} - {cardapioAlimentos[i]} - R${precoAlimentos[i]:.2f}")
     
-try:
-    escolhaAlimentos = int(input('Digite o número do item desejado para continuar: '))
-
-    if 0 <= escolhaAlimentos < len(cardapioAlimentos):
-        quantidade = int(input(f"Você selecionou {cardapioAlimentos[escolhaAlimentos]}, quantos gostaria de adicionar no pedido? \n"))
-    else:
+while True:
+    try:
+        escolhaAlimentos = int(input('Digite o número do item desejado para continuar: '))
+        if 0 <= escolhaAlimentos < len(cardapioAlimentos):
+            break
+            quantidade = int(input(f"Você selecionou {cardapioAlimentos[escolhaAlimentos]}, quantos gostaria de adicionar no pedido? \n"))
+        else:
+            print('Valor inválido! Por favor, digite uma das opções descritas.')
+    except:
         print('Valor inválido! Por favor, digite uma das opções descritas.')
-except:
-    print('Valor inválido! Por favor, digite uma das opções descritas.')
 
 
 for i in range(len(escolhaAdicionar)):
     print(f"{i} - {escolhaAdicionar[i]}\n")
 
-escolha = int(input('Gostaria de adicionar alguma bebida no seu pedido? Digite 1 para Sim ou 0 para Não: \n'))
-
+while True:
+    try:
+        escolha = int(input('Gostaria de adicionar alguma bebida no seu pedido? Digite 1 para Sim ou 0 para Não: \n'))
+        if 0 <= escolha < len(escolhaAdicionar):
+            break
+        else:
+            print('Valor inválido! Por favor, digite uma das opções descritas.')
+    except:
+        print('Valor inválido! Por favor, digite uma das opções descritas.')
+    
 for i in range(len(cardapioBebidas)):
-    print(f"{i} - {cardapioBebidas[i]} - R${precoBebidas[i]:.2f}\n")
+    print(f"{i} - {cardapioBebidas[i]} - R${precoBebidas[i]:.2f}")
 
 if escolha == 0:
     print('Certo, estamos somando o total do seu pedido, por favor aguarde um instante')
